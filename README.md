@@ -4,7 +4,7 @@
 
 Control and monitor a **Zehnder ComfoAir Q** ventilation unit (heat recovery / MVHR) with a cheap **ESP32** and a **CAN transceiver**, running **ESPHome**. You get about 40 live readings and full control — fan speed, away mode, boost, bypass — over Wi-Fi, from your own scripts, **without Home Assistant**.
 
-**No extra Zehnder modules needed.** To use Zehnder's own app you normally have to buy two add-on modules for the unit — an interface module and the ComfoConnect LAN C Ethernet gateway — about 2000 PLN (~€450) together. This project replaces them with an ESP32 and a CAN module for a few euros.
+**No extra Zehnder modules needed.** To use Zehnder's own app you normally have to buy two add-on modules for the unit — an interface module and the ComfoConnect LAN C Ethernet gateway — about 2000 PLN (~$550) together. This project replaces them with an ESP32 (~$7, or ~$33 for a PoE version) and a CAN module (~$5) — about $12 in total.
 
 This is a ready-to-flash config based on the excellent [yoziru/esphome-zehnder-comfoair](https://github.com/yoziru/esphome-zehnder-comfoair) component, plus **three fixes** found during months of daily use, a simple **PHP control script**, and a **step-by-step hardware guide** with photos.
 
