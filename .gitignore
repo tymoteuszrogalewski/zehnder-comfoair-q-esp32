@@ -1,0 +1,4 @@
+php/config.php
+esphome/secrets.yaml
+esphome/.esphome/
+.DS_Store

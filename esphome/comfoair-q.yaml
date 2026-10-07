@@ -1,0 +1,96 @@
+# Zehnder ComfoAir Q — ESP32 + CAN transceiver (e.g. Waveshare SN65HVD230)
+#
+# Based on yoziru/esphome-zehnder-comfoair (pinned commit below). The component code is used
+# as-is. All changes are in this file — see "Fixes" in README.md for why each one is here.
+
+substitutions:
+  name: comfoair-q
+  friendly_name: ComfoAir Q
+  # CAN transceiver pins (ESP32 side). Transceiver CAN RX -> GPIO4, CAN TX -> GPIO5.
+  can_rx_pin: GPIO4
+  can_tx_pin: GPIO5
+  flash_size: 4MB
+  wifi_ssid: !secret wifi_ssid
+  wifi_password: !secret wifi_password
+  api_encryption_key: !secret api_encryption_key
+  wifi_hotspot_password: !secret wifi_hotspot_password
+  ota_password: !secret ota_password
+
+packages:
+  # Pinned to a commit on purpose. "@main" is a moving target: every rebuild could pull a newer
+  # component and change behaviour without any change on your side. Update it on purpose.
+  remote_package: github://yoziru/esphome-zehnder-comfoair/zehnder-comfoair-q-esp32-evb.dashboard.yml@ce62828bf21bcaec3a530e97740fa322cc085526
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+# The package already defines the canbus: and zehnder_comfoair_q: sections — do not add them here.
+
+# FIX 1 — true permanent fan speed.
+# The built-in set_level() / set_manual_mode() send the command with duration_secs=1. For this unit
+# it means "use the unit's own timer" (about 12 min), not permanent — so the speed fell back to Auto
+# after ~12 minutes. Real permanent is duration_secs=0xffffffff (the component already uses it for
+# away mode and bypass). These buttons call send_command_set_timer directly:
+#   level:  send_command_set_timer(true, 0x01, 0x01, <speed>, 0xffffffff)
+#   manual: send_command_set_timer(true, 0x08, 0x01, 1,       0xffffffff)
+# Order: first the level, wait 1 s, then switch to manual — both with 0xffffffff.
+button:
+  - platform: template
+    name: "Manual Permanent Low"
+    on_press:
+      - lambda: id(comfoair)->send_command_set_timer(true, 0x01, 0x01, 1, 0xffffffff);
+      - delay: 1s
+      - lambda: id(comfoair)->send_command_set_timer(true, 0x08, 0x01, 1, 0xffffffff);
+  - platform: template
+    name: "Manual Permanent Medium"
+    on_press:
+      - lambda: id(comfoair)->send_command_set_timer(true, 0x01, 0x01, 2, 0xffffffff);
+      - delay: 1s
+      - lambda: id(comfoair)->send_command_set_timer(true, 0x08, 0x01, 1, 0xffffffff);
+  - platform: template
+    name: "Manual Permanent High"
+    on_press:
+      - lambda: id(comfoair)->send_command_set_timer(true, 0x01, 0x01, 3, 0xffffffff);
+      - delay: 1s
+      - lambda: id(comfoair)->send_command_set_timer(true, 0x08, 0x01, 1, 0xffffffff);
+
+# FIX 2 — the ESP must not leave manual mode on its own.
+# In the package, the `fan` entity has automations:
+#   fan level == 0 -> fan.turn_off -> select Fan Speed = "Away"
+#   fan level  > 0 -> fan.turn_on  -> Auto Ventilation ON -> manual mode OFF
+# So when the level drops to 0 even for a moment (mode change, a glitch on the bus) and comes back,
+# the ESP itself switches the unit from manual to Auto. Control the unit only with the
+# "Manual Permanent" buttons and the "Away Mode" switch — then these automations are not needed
+# and the fan entity stays read-only.
+fan:
+  - id: !extend comfoair_fan
+    on_turn_on: !remove
+    on_turn_off: !remove
+
+# FIX 3 — no reboot every 15 minutes.
+# By default ESPHome reboots the device when no native API client (like Home Assistant) has been
+# connected for 15 minutes. If you control the unit over REST (see php/), nothing connects to the
+# native API, so the ESP rebooted every 15 minutes. 0s = never.
+api:
+  reboot_timeout: 0s
+
+# Wi-Fi tuned for a device that sits inside a metal ventilation unit.
+wifi:
+  power_save_mode: none   # no Wi-Fi sleep — more stable connection, the ESP is powered from USB anyway
+  fast_connect: true
+  reboot_timeout: 10min   # reboot only after 10 min without Wi-Fi
+  output_power: 20dB
+  # Optional fixed IP (recommended — then php/config.php always points to the right address):
+  # manual_ip:
+  #   static_ip: 192.168.1.50
+  #   gateway: 192.168.1.1
+  #   subnet: 255.255.255.0
+  #   dns1: 192.168.1.1
+  ap:
+    ap_timeout: 0s
