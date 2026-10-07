@@ -6,6 +6,10 @@ Control and monitor a **Zehnder ComfoAir Q** ventilation unit (heat recovery / M
 
 This is a ready-to-flash config based on the excellent [yoziru/esphome-zehnder-comfoair](https://github.com/yoziru/esphome-zehnder-comfoair) component, plus **three fixes** found during months of daily use, a simple **PHP control script**, and a **step-by-step hardware guide** with photos.
 
+- **Fan speed really stays** — no fallback to Auto after ~12 minutes.
+- **The ESP never leaves manual mode by itself** — no unwanted switch to Auto after a short glitch.
+- **No reboot every 15 minutes** — stable when you use REST instead of Home Assistant.
+
 <h3>What you get:<br>temperatures · humidity · air flow · fan speed · power · bypass · filter days · saved energy · permanent fan speed · away · boost · bypass control</h3>
 
 ![ESP32 with CAN module mounted on the ComfoAir Q](docs/1-installed.jpg)<br>
