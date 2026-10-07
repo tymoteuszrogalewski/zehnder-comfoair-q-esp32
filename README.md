@@ -4,11 +4,11 @@
 
 Control and monitor a **Zehnder ComfoAir Q** ventilation unit (heat recovery / MVHR) with a cheap **ESP32** and a **CAN transceiver**, running **ESPHome**. You get about 40 live readings and full control — fan speed, away mode, boost, bypass — over Wi-Fi, from your own scripts, **without Home Assistant**.
 
-**No extra Zehnder modules needed.** Zehnder's app needs the ComfoConnect LAN C gateway (~$315), and extra sensors such as bathroom humidity or CO2 can only be connected through the Option Box (~$345) — plus Zehnder's own, expensive sensors. With this project you need neither: an ESP32 (~$7, or ~$33 for a PoE version) and a CAN module (~$5) — about $12 — and your scripts can react to any cheap sensor, e.g. a Zigbee humidity sensor in the bathroom.
+**No extra Zehnder modules needed.** To use Zehnder's app you have to buy the ComfoConnect LAN C gateway (about $315). Extra sensors, such as bathroom humidity or CO2, can only be connected through the Option Box (about $345), plus Zehnder's own expensive sensors. With this project you need none of them: just an ESP32 (about $7, or $33 for a PoE version) and a CAN module (about $5). Your scripts can react to any cheap sensor, e.g. a Zigbee humidity sensor in the bathroom.
 
 This is a ready-to-flash config based on the excellent [yoziru/esphome-zehnder-comfoair](https://github.com/yoziru/esphome-zehnder-comfoair) component, plus **three fixes** found during months of daily use, a simple **PHP control script**, and a **step-by-step hardware guide** with photos.
 
-- **Fan speed really stays** — no fallback to Auto after ~12 minutes.
+- **Fan speed really stays** — no fallback to Auto after about 12 minutes.
 - **The ESP never leaves manual mode by itself** — no unwanted switch to Auto after a short glitch.
 - **No reboot every 15 minutes** — stable when you use REST instead of Home Assistant.
 
