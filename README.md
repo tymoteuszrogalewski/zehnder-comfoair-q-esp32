@@ -100,6 +100,8 @@ After flashing, open `http://<ESP IP>/` in a browser — you will see all readin
 
 Give the ESP32 a **fixed IP** (in your router, or `manual_ip` in `comfoair-q.yaml`), so your scripts always find it.
 
+> **Full remote control:** if the unit should be driven only by this module, switch it **fully to manual mode in the unit's own settings** (on the ComfoAir Q display) and turn off its automatic functions. Otherwise the unit's own logic will keep overriding your settings. Screenshots of the exact settings will be added later.
+
 ### 2. Control it
 
 **From the command line (PHP):**
