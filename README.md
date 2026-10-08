@@ -17,8 +17,8 @@ This is a ready-to-flash config based on the excellent [yoziru/esphome-zehnder-c
 ![Live ventilation widget in TymOS](docs/0-tymos-ventilation.png)<br>
 *Live data from the ESP32 in [TymOS](https://github.com/tymoteuszrogalewski/tymos): air flow, temperatures and humidity on both sides of the heat exchanger, fan speed and modes.*
 
-![ESP32 with CAN module mounted on the ComfoAir Q](docs/installed-v2.jpg)<br>
-*The finished module on top of the unit: ESP32 in a printed case, the CAN module wrapped in foil (see [the tip](#tip-shield-the-can-module)), powered by a USB-C phone charger.*
+![ESP32 with CAN module connected to the ComfoAir Q](docs/can-foil-inside-v2.jpg)<br>
+*The module on top of the unit: ESP32 in a printed case, the CAN module wired with two wires into the ComfoNet terminals (see [Wiring](#wiring)), powered by a USB-C phone charger. The CAN module sits in bubble wrap and is then wrapped in foil — see [the tip](#tip-shield-the-can-module).*
 
 ## Hardware
 
@@ -71,7 +71,7 @@ The CAN module can **disturb the ESP32 Wi-Fi** a lot — in my case the ESP kept
 
 <table>
 <tr>
-<td width="50%" valign="top"><img src="docs/can-foil-inside-v2.jpg" width="100%"><br><sub>Under the foil: the CAN module in bubble wrap, so the foil never touches the pins. The finished, wrapped module is in the main photo at the top.</sub></td>
+<td width="50%" valign="top"><img src="docs/installed-v2.jpg" width="100%"><br><sub>The CAN module wrapped in aluminium foil (in bubble wrap underneath, so the foil never touches the pins).</sub></td>
 <td width="50%"></td>
 </tr>
 </table>
