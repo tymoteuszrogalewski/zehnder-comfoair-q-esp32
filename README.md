@@ -17,8 +17,8 @@ This is a ready-to-flash config based on the excellent [yoziru/esphome-zehnder-c
 ![Live ventilation widget in TymOS](docs/0-tymos-ventilation.png)<br>
 *Live data from the ESP32 in [TymOS](https://github.com/tymoteuszrogalewski/tymos): air flow, temperatures and humidity on both sides of the heat exchanger, fan speed and modes.*
 
-![ESP32 with CAN module connected to the ComfoAir Q](docs/can-foil-inside-v2.jpg)<br>
-*The module on top of the unit: ESP32 in a printed case, the CAN module wired with two wires into the ComfoNet terminals (see [Wiring](#wiring)), powered by a USB-C phone charger. The CAN module sits in bubble wrap and is then wrapped in foil — see [the tip](#tip-shield-the-can-module).*
+![CAN module wired into the ComfoNet terminals of the ComfoAir Q](docs/connection-v3.jpg)<br>
+*The CAN module wired into the ComfoNet terminals on top of the unit — just two wires, CAN H and CAN L (see [Wiring](#wiring)). Next to it the ESP32 in its printed case. Afterwards the CAN module is wrapped in foil — see [the tip](#tip-shield-the-can-module).*
 
 ## Hardware
 
@@ -73,8 +73,16 @@ To be on the safe side, I also covered the unit's own **power supply** (it sits 
 
 <table>
 <tr>
-<td width="50%" valign="top"><img src="docs/installed-v2.jpg" width="100%"><br><sub>The CAN module wrapped in aluminium foil (in bubble wrap underneath, so the foil never touches the pins).</sub></td>
-<td width="50%"></td>
+<td width="50%" valign="top"><img src="docs/finished-psu-foil.jpg" width="100%"><br><sub>Finished: the ESP32 case sits in the opening, the CAN module under it in foil. The unit's own power supply is covered with a sheet of foil as well.</sub></td>
+<td width="50%" valign="top"><img src="docs/step-bubble-wrap.jpg" width="100%"><br><sub>Step 1: the CAN module wrapped in bubble wrap, so the foil never touches the pins.</sub></td>
+</tr>
+<tr>
+<td width="50%" valign="top"><img src="docs/step-foil.jpg" width="100%"><br><sub>Step 2: aluminium foil over the bubble wrap.</sub></td>
+<td width="50%" valign="top"><img src="docs/step-in-place.jpg" width="100%"><br><sub>Step 3: the wrapped module goes into the opening, the ESP32 case on top, held with foam.</sub></td>
+</tr>
+<tr>
+<td width="50%" valign="top"><img src="docs/step-cover-closed.jpg" width="100%"><br><sub>Step 4: the cover of the unit closed again — the module stays hidden under it.</sub></td>
+<td width="50%" valign="top"><img src="docs/power-charger.jpg" width="100%"><br><sub>Power: a USB-C phone charger in a power strip.</sub></td>
 </tr>
 </table>
 
