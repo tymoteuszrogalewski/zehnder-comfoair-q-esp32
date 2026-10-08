@@ -73,15 +73,15 @@ To be on the safe side, I also covered the unit's own **power supply** (it sits 
 
 <table>
 <tr>
-<td width="50%" valign="top"><img src="docs/finished-psu-foil.jpg" width="100%"><br><sub>Finished: the ESP32 case sits in the opening, the CAN module under it in foil. The unit's own power supply is covered with a sheet of foil as well.</sub></td>
-<td width="50%" valign="top"><img src="docs/step-bubble-wrap.jpg" width="100%"><br><sub>Step 1: the CAN module wrapped in bubble wrap, so the foil never touches the pins.</sub></td>
-</tr>
-<tr>
+<td width="50%" valign="top"><img src="docs/step-bubble-wrap.jpg" width="100%"><br><sub>Step 1: the CAN module wrapped in bubble wrap, so the aluminium foil cannot short anything.</sub></td>
 <td width="50%" valign="top"><img src="docs/step-foil.jpg" width="100%"><br><sub>Step 2: aluminium foil over the bubble wrap.</sub></td>
-<td width="50%" valign="top"><img src="docs/step-in-place.jpg" width="100%"><br><sub>Step 3: the wrapped module goes into the opening, the ESP32 case on top, held with foam.</sub></td>
 </tr>
 <tr>
-<td width="50%" valign="top"><img src="docs/step-cover-closed.jpg" width="100%"><br><sub>Step 4: the cover of the unit closed again — the module stays hidden under it.</sub></td>
+<td width="50%" valign="top"><img src="docs/step-in-place.jpg" width="100%"><br><sub>Step 3: everything goes into the opening — the wrapped CAN module below, the ESP32 case on top, held with foam.</sub></td>
+<td width="50%" valign="top"><img src="docs/finished-psu-foil.jpg" width="100%"><br><sub>Step 4: the unit's own power supply covered with a sheet of foil as well.</sub></td>
+</tr>
+<tr>
+<td width="50%" valign="top"><img src="docs/step-cover-closed.jpg" width="100%"><br><sub>Step 5: the cover of the unit closed again — the module stays hidden under it.</sub></td>
 <td width="50%" valign="top"><img src="docs/power-charger.jpg" width="100%"><br><sub>Power: a USB-C phone charger in a power strip.</sub></td>
 </tr>
 </table>
