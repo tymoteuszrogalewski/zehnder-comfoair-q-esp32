@@ -69,7 +69,7 @@ The photos below show the parts **without the foil**, so the wiring is visible.
 
 The CAN module can **disturb the ESP32 Wi-Fi** a lot — in my case the ESP kept losing the connection. Wrapping the CAN module in **aluminium foil** fixed it. Keep the foil away from the ESP32 antenna (the end of the board with the wavy line), and make sure it does not touch any pins.
 
-To be on the safe side, I also covered the unit's own **power supply** (it sits on top of the unit, right next to the module) with a piece of foil, to rule out interference from it as well.
+To be on the safe side, I also covered the unit's own **power supply** (it sits on top of the unit) with a piece of foil, to rule out interference from it as well.
 
 <table>
 <tr>
