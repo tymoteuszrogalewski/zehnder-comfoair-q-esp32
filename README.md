@@ -102,7 +102,33 @@ After flashing, open `http://<ESP IP>/` in a browser — you will see all readin
 
 Give the ESP32 a **fixed IP** (in your router, or `manual_ip` in `comfoair-q.yaml`), so your scripts always find it.
 
-> **Full remote control:** if the unit should be driven only by this module, switch it **fully to manual mode in the unit's own settings** (on the ComfoAir Q display) and turn off its automatic functions. Otherwise the unit's own logic will keep overriding your settings. Screenshots of the exact settings will be added later.
+### Unit settings for full remote control
+
+If the unit should be driven only by this module, switch it **fully to manual mode** on the ComfoAir Q display and turn off the automatic functions. Otherwise the unit's own logic keeps overriding your settings (e.g. opens the bypass or raises the fan speed because of humidity).
+
+| Setting on the display | Value |
+|---|---|
+| Auto / Manual | **Manual** |
+| Passive temperature (bypass) | **Off** |
+| Humidity comfort | **Off** |
+| Humidity protection | **Off** |
+
+The photos are from a unit with the display in Polish; in other languages the menu names may differ slightly.
+
+<table>
+<tr>
+<td width="50%" valign="top"><img src="docs/10-unit-manual.jpg" width="100%"><br><sub>Main screen: <b>RĘCZNE</b> = Manual.</sub></td>
+<td width="50%" valign="top"><img src="docs/11-setting-manual.jpg" width="100%"><br><sub>Auto / Manual → <b>Manual</b>.</sub></td>
+</tr>
+<tr>
+<td width="50%" valign="top"><img src="docs/12-setting-bypass-off.jpg" width="100%"><br><sub>Passive temperature (bypass) → <b>Off</b>.</sub></td>
+<td width="50%" valign="top"><img src="docs/13-setting-humidity-comfort-off.jpg" width="100%"><br><sub>Humidity comfort → <b>Off</b>.</sub></td>
+</tr>
+<tr>
+<td width="50%" valign="top"><img src="docs/14-setting-humidity-protection-off.jpg" width="100%"><br><sub>Humidity protection → <b>Off</b>.</sub></td>
+<td width="50%"></td>
+</tr>
+</table>
 
 ### 2. Control it
 
