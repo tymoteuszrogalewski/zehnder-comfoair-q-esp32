@@ -17,8 +17,8 @@ This is a ready-to-flash config based on the excellent [yoziru/esphome-zehnder-c
 ![Live ventilation widget in TymOS](docs/0-tymos-ventilation.png)<br>
 *Live data from the ESP32 in [TymOS](https://github.com/tymoteuszrogalewski/tymos): air flow, temperatures and humidity on both sides of the heat exchanger, fan speed and modes.*
 
-![ESP32 with CAN module mounted on the ComfoAir Q](docs/1-installed.jpg)<br>
-*The finished module on top of the unit, powered by a USB-C phone charger.*
+![ESP32 with CAN module mounted on the ComfoAir Q](docs/installed-v2.jpg)<br>
+*The finished module on top of the unit: ESP32 in a printed case, the CAN module wrapped in foil (see [the tip](#tip-shield-the-can-module)), powered by a USB-C phone charger.*
 
 ## Hardware
 
@@ -56,18 +56,12 @@ Only two wires go into the unit. Nothing on the CAN module was changed — no ju
 
 > ⚠ Switch the unit off at the mains before you connect anything to it.
 
+The photos below show the parts **without the foil**, so the wiring is visible.
+
 <table>
 <tr>
-<td width="50%" valign="top"><img src="docs/2-comfonet-connection.jpg" width="100%"><br><sub>Two wires (CAN H, CAN L) go into the ComfoNet terminals on top of the unit.</sub></td>
-<td width="50%" valign="top"><img src="docs/3-assembled.jpg" width="100%"><br><sub>Assembled: ESP32 in a printed case, CAN module on top, held with cable ties and foam.</sub></td>
-</tr>
-<tr>
-<td width="50%" valign="top"><img src="docs/4-esp32-and-can.jpg" width="100%"><br><sub>ESP32 DevKit and the Waveshare CAN module with 4 jumper wires.</sub></td>
-<td width="50%" valign="top"><img src="docs/6-can-module-pins.jpg" width="100%"><br><sub>CAN module pins: 3.3V, GND, CAN RX, CAN TX — and the CANH / CANL screw terminal.</sub></td>
-</tr>
-<tr>
-<td width="50%" valign="top"><img src="docs/5-esp32-devkit.jpg" width="100%"><br><sub>The ESP32 board used (ESP-WROOM-32, CH340C, USB-C).</sub></td>
-<td width="50%"></td>
+<td width="50%" valign="top"><img src="docs/esp32-and-can-v2.jpg" width="100%"><br><sub>ESP32 DevKit (ESP-WROOM-32, USB-C) and the Waveshare CAN module with 4 jumper wires.</sub></td>
+<td width="50%" valign="top"><img src="docs/can-module-pins-v2.jpg" width="100%"><br><sub>CAN module pins: 3.3V, GND, CAN RX, CAN TX — and the CANH / CANL screw terminal.</sub></td>
 </tr>
 </table>
 
@@ -77,8 +71,8 @@ The CAN module can **disturb the ESP32 Wi-Fi** a lot — in my case the ESP kept
 
 <table>
 <tr>
-<td width="50%" valign="top"><img src="docs/8-can-foil.jpg" width="100%"><br><sub>The CAN module wrapped in aluminium foil.</sub></td>
-<td width="50%" valign="top"><img src="docs/9-can-foil-inside.jpg" width="100%"><br><sub>Under the foil: the CAN module in bubble wrap, so the foil never touches the pins.</sub></td>
+<td width="50%" valign="top"><img src="docs/can-foil-inside-v2.jpg" width="100%"><br><sub>Under the foil: the CAN module in bubble wrap, so the foil never touches the pins. The finished, wrapped module is in the main photo at the top.</sub></td>
+<td width="50%"></td>
 </tr>
 </table>
 
