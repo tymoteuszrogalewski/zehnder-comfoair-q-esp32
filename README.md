@@ -14,7 +14,7 @@ This is a ready-to-flash config based on the excellent [yoziru/esphome-zehnder-c
 
 <h3>What you get:<br>temperatures · humidity · air flow · fan speed · power · bypass · filter days · saved energy · permanent fan speed · away · boost · bypass control</h3>
 
-![Live ventilation widget in TymOS](docs/0-tymos-ventilation-v2.png)<br>
+![Live ventilation widget in TymOS](docs/0-tymos-ventilation-v3.png)<br>
 *Live data from the ESP32 in [TymOS](https://github.com/tymoteuszrogalewski/tymos): air flow, temperatures and humidity on both sides of the heat exchanger, fan speed and modes.*
 
 ![CAN module wired into the ComfoNet terminals of the ComfoAir Q](docs/connection-v3.jpg)<br>
